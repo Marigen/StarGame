@@ -11,6 +11,9 @@ public class Asteroid {
     private Vector2 velocity;
     private float scale;
 
+//    FIXME Не доделал логику астероида, как у звезд (разная скорость и масштаб), сейчас у всех астероидов одна и таже скорость и масштаб
+//    TODO
+
     public Asteroid(){
         this.texture = new Texture("asteroid.png");
         this.position = new Vector2(MathUtils.random(0, ScreenManager.SCREEN_WIDTH), MathUtils.random(0, ScreenManager.SCREEN_HEIGHT));
@@ -21,8 +24,8 @@ public class Asteroid {
     public void update(float dt) {
         position.x += velocity.x * 7.5f * dt;
         position.y += velocity.y * 7.5f * dt;
-        if (position.x < -20){
-            position.x = ScreenManager.SCREEN_WIDTH + 20;
+        if (position.x < -256){
+            position.x = ScreenManager.SCREEN_WIDTH + 256;
             position.y = MathUtils.random(0, ScreenManager.SCREEN_HEIGHT);
             scale = Math.abs(velocity.x) / 40.0f * 0.7f;
         }
